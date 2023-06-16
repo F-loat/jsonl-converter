@@ -1,0 +1,74 @@
+{
+  "name": "jsonl-converter",
+  "displayName": "JSONL Converter",
+  "description": "JSON Lines Converter",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "publisher": "F-loat",
+  "repository": "git@github.com:F-loat/jsonl-converter.git",
+  "license": "MIT",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "icon": "media/icon.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jsonl-converter.convertToJSON",
+        "title": "%jsonlConverte.toJSON.title%",
+        "icon": "$(open-editors-view-icon)"
+      },
+      {
+        "command": "jsonl-converter.convertToJSONL",
+        "title": "%jsonlConverte.toJSONL.title%",
+        "icon": "$(find-selection)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceExtname == .json",
+          "command": "jsonl-converter.convertToJSONL",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceExtname == .jsonl",
+          "command": "jsonl-converter.convertToJSON",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .json",
+          "command": "jsonl-converter.convertToJSONL",
+          "group": "3_jsonl_converter"
+        },
+        {
+          "when": "resourceExtname == .jsonl",
+          "command": "jsonl-converter.convertToJSON",
+          "group": "3_jsonl_converter"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^8.1.0",
+    "@types/node": "20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "typescript": "^5.1.3"
+  }
+}
