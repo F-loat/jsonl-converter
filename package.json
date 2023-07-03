@@ -2,7 +2,7 @@
   "name": "jsonl-converter",
   "displayName": "JSONL Converter",
   "description": "JSON Lines Converter",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "engines": {
     "vscode": "^1.60.0"
   },
